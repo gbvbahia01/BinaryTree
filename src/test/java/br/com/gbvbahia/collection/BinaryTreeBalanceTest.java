@@ -26,8 +26,6 @@ public class BinaryTreeBalanceTest {
 			binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
 		}
 		
-		log.info(binaryTree.inorder());
-		
 		assertTrue(binaryTree.hasValue());
 		assertTrue(binaryTree.hasLeftValue());
 		assertTrue(binaryTree.hasRightValue());
@@ -45,8 +43,6 @@ public class BinaryTreeBalanceTest {
 			binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
 		}
 		
-		log.info(binaryTree.inorder());
-		
 		assertTrue(binaryTree.hasValue());
 		assertTrue(binaryTree.hasLeftValue());
 		assertTrue(binaryTree.hasRightValue());
@@ -62,13 +58,13 @@ public class BinaryTreeBalanceTest {
 			return true;
 		}
 		boolean isGreater  = isSubTreeGreater(binaryTree.getRight(), binaryTree.getValue());
-		assertTrue("False for isGreater: " + binaryTree.inorder(), isGreater);
+		assertTrue("False for isGreater: " + binaryTree, isGreater);
 		boolean isLesser  = isSubTreeLesser(binaryTree.getLeft(), binaryTree.getValue());
-		assertTrue("False for islesser: " + binaryTree.inorder(), isLesser);
+		assertTrue("False for islesser: " + binaryTree, isLesser);
 		boolean isRight = isBinarySearchTree(binaryTree.getRight());
-		assertTrue("False for isRight: " + binaryTree.inorder(), isRight);
+		assertTrue("False for isRight: " + binaryTree, isRight);
 		boolean isLeft = isBinarySearchTree(binaryTree.getLeft());
-		assertTrue("False for isLeft: " + binaryTree.inorder(), isLeft);
+		assertTrue("False for isLeft: " + binaryTree, isLeft);
 		return isGreater && isLesser && isRight && isLeft;
 	}
 	

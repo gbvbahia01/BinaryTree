@@ -16,57 +16,6 @@ public class BinaryTreeTraversalsTest {
   }
 
   @Test
-  public void test_preorder() {
-    fillTree();
-    log.info(binaryTree.preorder());
-    String expected = "L: (3) M: (5) R: (7)\n"
-        + "L: (2) M: (3) R: (4)\n"
-        + "L: (1) M: (2) R: null\n"
-        + "L: null M: (1) R: null\n"
-        + "L: null M: (4) R: null\n"
-        + "L: (6) M: (7) R: (8)\n"
-        + "L: null M: (6) R: null\n"
-        + "L: null M: (8) R: (9)\n"
-        + "L: null M: (9) R: null";
-    assertEquals(expected, binaryTree.preorder().trim());
-    
-  }
-  
-  @Test
-  public void test_inorder() {
-    fillTree();
-    log.info(binaryTree.inorder());
-    String expected = "L: null M: (1) R: null\n"
-        + "L: (1) M: (2) R: null\n"
-        + "L: (2) M: (3) R: (4)\n"
-        + "L: null M: (4) R: null\n"
-        + "L: (3) M: (5) R: (7)\n"
-        + "L: null M: (6) R: null\n"
-        + "L: (6) M: (7) R: (8)\n"
-        + "L: null M: (8) R: (9)\n"
-        + "L: null M: (9) R: null";
-    assertEquals(expected, binaryTree.inorder().trim());
-    
-  }
-  
-  @Test
-  public void test_postorder() {
-    fillTree();
-    log.info(binaryTree.postorder());
-    String expected = "L: null M: (1) R: null\n"
-        + "L: (1) M: (2) R: null\n"
-        + "L: null M: (4) R: null\n"
-        + "L: (2) M: (3) R: (4)\n"
-        + "L: null M: (6) R: null\n"
-        + "L: null M: (9) R: null\n"
-        + "L: null M: (8) R: (9)\n"
-        + "L: (6) M: (7) R: (8)\n"
-        + "L: (3) M: (5) R: (7)";
-    assertEquals(expected, binaryTree.postorder().trim());
-    
-  }
-  
-  @Test
   public void test_breadthFirst() {
     fillTree();
     log.info(binaryTree.breadthFirst());

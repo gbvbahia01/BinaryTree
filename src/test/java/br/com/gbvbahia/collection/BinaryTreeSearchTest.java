@@ -65,8 +65,6 @@ public class BinaryTreeSearchTest {
 			binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
 		}
 		
-		binaryTree.inorder();
-		
 		assertTrue(binaryTree.hasValue());
 		assertTrue(binaryTree.hasLeftValue());
 		assertTrue(binaryTree.hasRightValue());
