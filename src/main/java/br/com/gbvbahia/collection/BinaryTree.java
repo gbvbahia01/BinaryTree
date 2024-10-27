@@ -122,18 +122,61 @@ public class BinaryTree<T extends BinaryTreeValue<T>> {
         return getRight().search(toSearch);
     }
 
-    public BinaryTree<T> getRight() {
+    protected BinaryTree<T> getRight() {
         if (right == null) {
             right = new BinaryTree<>();
         }
         return right;
     }
 
-    public BinaryTree<T> getLeft() {
+    protected BinaryTree<T> getLeft() {
         if (left == null) {
             left = new BinaryTree<>();
         }
         return left;
+    }
+
+    /*
+    When we remove a node with two children, we replace the node with either its in-order successor
+    (the smallest value in its right subtree) or its in-order predecessor (the largest value in its left subtree).
+    This ensures that the tree remains a valid binary search tree.
+     */
+    public BinaryTree<T> remove(T val) {
+        if (value == null) {
+            return this;
+        }
+
+        if (val.compareTo(this.value) < 0) {
+            if (left != null) {
+                left = left.remove(val);
+            }
+        } else if (val.compareTo(this.value) > 0) {
+            if (right != null) {
+                right = right.remove(val);
+            }
+        } else {
+            //We found the node to be removed
+            if (left == null) {
+                return right;
+            } else if (right == null) {
+                return left;
+            } else {
+                // Node with two children
+                T minValue = right.findMin();
+                this.value = minValue;
+                right = right.remove(minValue);
+            }
+        }
+
+        return balance();
+    }
+
+    private T findMin() {
+        if (left == null) {
+            return value;
+        } else {
+            return left.findMin();
+        }
     }
 
     //http://www.webgraphviz.com/
@@ -162,30 +205,29 @@ public class BinaryTree<T extends BinaryTreeValue<T>> {
         }
     }
 
+    /**
+     * Performs a breadth-first traversal (level-order traversal) of the binary tree and returns a string representation
+     * of the node values in the order they are visited.
+     *
+     * <p>This method traverses the tree level by level, from left to right, starting from the root node.
+     * It collects the values of each node into a queue during the traversal and then builds a string containing
+     * all the node values in breadth-first order.</p>
+     *
+     * @return a {@code String} containing the values of the nodes in breadth-first order.
+     */
     public String breadthFirst() {
-        LinkedList<T> queue = new LinkedList<>();
-        queue.add(this.value);
-        breadthFirstQueue(this, queue);
-        return breadthFirstString(queue);
-    }
+        StringBuilder builder = new StringBuilder();
+        Queue<BinaryTree<T>> queue = new LinkedList<>();
+        queue.add(this); // Start with the root node
 
-    private void breadthFirstQueue(BinaryTree<T> root, Queue<T> queue) {
-        if (root != null && root.hasValue()) {
-            queue.add(root.getLeft().value);
-            queue.add(root.getRight().value);
-            breadthFirstQueue(root.getLeft(), queue);
-            breadthFirstQueue(root.getRight(), queue);
-        }
-    }
-
-    private String breadthFirstString(Queue<T> queue) {
-        StringBuilder builder = new StringBuilder("\n");
         while (!queue.isEmpty()) {
-            T poll = queue.poll();
-            if (poll != null) {
-                builder.append(poll);
+            BinaryTree<T> node = queue.poll(); // Remove the node from the front of the queue
+            if (node != null && node.hasValue()) {
+                builder.append(node.value); // Visit the current node
+                queue.add(node.left); // Adds left child to queue
+                queue.add(node.right); // Adds the right child to the queue
             }
         }
-        return builder.toString();
+        return builder.toString().trim(); // Returns the string with the values in level order
     }
 }
