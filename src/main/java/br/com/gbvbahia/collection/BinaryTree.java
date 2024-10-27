@@ -30,6 +30,10 @@ public class BinaryTree<T extends BinaryTreeValue<T>> {
         return value != null;
     }
 
+    public boolean isNull() {
+        return value == null;
+    }
+
     public boolean hasLeftValue() {
         return left != null && left.value != null;
     }
@@ -106,7 +110,7 @@ public class BinaryTree<T extends BinaryTreeValue<T>> {
     }
 
     public Optional<T> search(T toSearch) {
-        if (!hasValue()) {
+        if (isNull()) {
             return Optional.empty();
         }
 
@@ -147,18 +151,18 @@ public class BinaryTree<T extends BinaryTreeValue<T>> {
         }
 
         if (val.compareTo(this.value) < 0) {
-            if (left != null) {
+            if (left != null && left.hasValue()) {
                 left = left.remove(val);
             }
         } else if (val.compareTo(this.value) > 0) {
-            if (right != null) {
+            if (right != null && right.hasValue()) {
                 right = right.remove(val);
             }
         } else {
             //We found the node to be removed
-            if (left == null) {
+            if (left == null || left.isNull()) {
                 return right;
-            } else if (right == null) {
+            } else if (right == null || right.isNull()) {
                 return left;
             } else {
                 // Node with two children
@@ -172,7 +176,7 @@ public class BinaryTree<T extends BinaryTreeValue<T>> {
     }
 
     private T findMin() {
-        if (left == null) {
+        if (left == null || left.isNull()) {
             return value;
         } else {
             return left.findMin();
@@ -185,7 +189,7 @@ public class BinaryTree<T extends BinaryTreeValue<T>> {
         builder.append("\ndigraph BinaryTree {\n");
         builder.append("node [fontname=\"Arial\"];\n");
 
-        if (!hasValue()) {
+        if (isNull()) {
             builder.append("\n");
         } else {
             toDotRecursive(this, builder);
