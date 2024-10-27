@@ -1,9 +1,12 @@
 package br.com.gbvbahia.collection;
 
+import lombok.Getter;
+
 import java.util.Optional;
 
 public class BinaryTreeCollection<T extends BinaryTreeValue<T>> {
 
+    @Getter
     private BinaryTree<T> root;
 
     public BinaryTreeCollection() {

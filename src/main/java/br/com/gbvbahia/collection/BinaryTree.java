@@ -48,7 +48,11 @@ public class BinaryTree<T extends BinaryTreeValue<T>> {
             return this;
         }
 
-        if (val.compareTo(this.value) < 0) {
+        int compare = val.compareTo(this.value);
+        if (compare == 0) {
+            // Value already exists; do not insert duplicate
+            return this;
+        } else if (compare < 0) {
             if (left == null) left = new BinaryTree<>(val);
             else left = left.insert(val);
         } else {
