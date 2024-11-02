@@ -2,6 +2,7 @@ package br.com.gbvbahia.collection;
 
 import lombok.Getter;
 
+import java.util.List;
 import java.util.Optional;
 
 public class BinaryTreeCollection<T extends BinaryTreeValue<T>> {
@@ -23,6 +24,18 @@ public class BinaryTreeCollection<T extends BinaryTreeValue<T>> {
 
     public Optional<T> search(T value) {
         return root.search(value);
+    }
+
+    public List<T> findAllGreaterThanOrEqualTo(T start) {
+        return root.findAllGreaterThanOrEqualTo(start).stream().toList();
+    }
+
+    public List<T> findAllLessThanOrEqualTo(T end) {
+        return root.findAllLessThanOrEqualTo(end).stream().toList();
+    }
+
+    public List<T> findAllBetween(T start, T end) {
+        return root.findAllBetween(start, end).stream().toList();
     }
 
     public int calculateHeight() {

@@ -3,9 +3,7 @@ package br.com.gbvbahia.collection;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.LinkedList;
-import java.util.Optional;
-import java.util.Queue;
+import java.util.*;
 import java.util.logging.Logger;
 
 //https://www.youtube.com/watch?v=H5JubkIy_p8&t=237s
@@ -128,6 +126,88 @@ public class BinaryTree<T extends BinaryTreeValue<T>> {
             return getLeft().search(toSearch);
         }
         return getRight().search(toSearch);
+    }
+
+    public Set<T> findAllGreaterThanOrEqualTo(T start) {
+        Set<T> result = new TreeSet<>();
+        findAllGreaterThanOrEqualToRecursive(this, start, result);
+        return result;
+    }
+
+    private void findAllGreaterThanOrEqualToRecursive(BinaryTree<T> node, T start, Set<T> result) {
+        if (node == null || !node.hasValue()) {
+            return;
+        }
+
+        // We always traverse the right subtree first
+        findAllGreaterThanOrEqualToRecursive(node.right, start, result);
+
+        int compare = node.value.compareTo(start);
+
+        if (compare >= 0) {
+            // Current node value is greater than or equal to 'start'
+            // Add the current node value
+            result.add(node.value);
+            // We traverse the left subtree
+            findAllGreaterThanOrEqualToRecursive(node.left, start, result);
+        }
+        // If 'compare < 0', we don't need to traverse the left subtree
+    }
+
+
+    public Set<T> findAllLessThanOrEqualTo(T end) {
+        Set<T> result = new TreeSet<>();
+        findAllLessThanOrEqualToRecursive(this, end, result);
+        return result;
+    }
+
+    private void findAllLessThanOrEqualToRecursive(BinaryTree<T> node, T end, Set<T> result) {
+        if (node == null || !node.hasValue()) {
+            return;
+        }
+
+        // We always traverse the left subtree first
+        findAllLessThanOrEqualToRecursive(node.left, end, result);
+
+        int compare = node.value.compareTo(end);
+
+        if (compare <= 0) {
+            // Current node value is less than or equal to 'end'
+            // Add the current node value
+            result.add(node.value);
+            // We traverse the right subtree
+            findAllLessThanOrEqualToRecursive(node.right, end, result);
+        }
+        // If 'compare > 0', we don't need to traverse the right subtree
+    }
+
+    public Set<T> findAllBetween(T start, T end) {
+        Set<T> result = new TreeSet<>();
+        findAllBetweenRecursive(this, start, end, result);
+        return result;
+    }
+
+    private void findAllBetweenRecursive(BinaryTree<T> node, T start, T end, Set<T> result) {
+        if (node == null || !node.hasValue()) {
+            return;
+        }
+
+        int compareStart = node.value.compareTo(start);
+        int compareEnd = node.value.compareTo(end);
+
+        if (compareStart >= 0 && compareEnd <= 0) {
+            // Current node value is between 'start' and 'end'
+            // Traverse left subtree, add current value, then right subtree
+            findAllBetweenRecursive(node.left, start, end, result);
+            result.add(node.value);
+            findAllBetweenRecursive(node.right, start, end, result);
+        } else if (compareEnd > 0) {
+            // Current node value is greater than 'end', ignore right subtree
+            findAllBetweenRecursive(node.left, start, end, result);
+        } else {
+            // Current node value is less than 'start', ignore left subtree
+            findAllBetweenRecursive(node.right, start, end, result);
+        }
     }
 
     protected BinaryTree<T> getRight() {
