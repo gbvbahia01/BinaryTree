@@ -61,6 +61,12 @@ public class BinaryTree<T extends BinaryTreeValue<T>> {
 
     public Optional<T> search(T toSearch) { /* ... */ }
 
+    public Set<T> findAllGreaterThanOrEqualTo(T start) { /* ... */ }
+
+    public Set<T> findAllLessThanOrEqualTo(T end) { /* ... */ }
+
+    public Set<T> findAllBetween(T start, T end) { /* ... */ }
+    
     public String breadthFirst() { /* ... */ }
     // ... other methods
 }
@@ -82,6 +88,12 @@ public class BinaryTreeCollection<T extends BinaryTreeValue<T>> {
 
     public Optional<T> search(T value) { /* ... */ }
 
+    public List<T> findAllGreaterThanOrEqualTo(T start) { /* ... */ }
+
+    public List<T> findAllLessThanOrEqualTo(T end) { /* ... */ }
+
+    public List<T> findAllBetween(T start, T end) { /* ... */ }
+    
     public String breadthFirst() { /* ... */ }
 
     public boolean isBinarySearchTree() { /* ... */ }

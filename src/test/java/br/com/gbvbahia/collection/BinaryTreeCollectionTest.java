@@ -4,11 +4,8 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.util.Optional;
-import java.util.logging.Logger;
 
 public class BinaryTreeCollectionTest extends TestCase {
-
-    private final Logger log = Logger.getLogger(getClass().getName());
 
     @Test
     public void testBinaryTreeCollection() {
@@ -42,14 +39,12 @@ public class BinaryTreeCollectionTest extends TestCase {
         binaryCollection.insert(new BinaryTreeValueImpl(10));
         binaryCollection.insert(new BinaryTreeValueImpl(20));
         binaryCollection.insert(new BinaryTreeValueImpl(15));
-        log.info(binaryCollection.breadthFirst());
-        log.info(binaryCollection.toString());
+
         assertTrue(binaryCollection.isBinarySearchTree());
         assertEquals("(12)(8)(20)(10)(17)(25)(15)", binaryCollection.breadthFirst().trim());
 
         binaryCollection.remove(new BinaryTreeValueImpl(12));
-        log.info(binaryCollection.breadthFirst());
-        log.info(binaryCollection.toString());
+
         assertTrue(binaryCollection.isBinarySearchTree());
         assertEquals("(15)(8)(20)(10)(17)(25)", binaryCollection.breadthFirst().trim());
     }
@@ -108,11 +103,9 @@ public class BinaryTreeCollectionTest extends TestCase {
         binaryCollection.insert(new BinaryTreeValueImpl(50));
         binaryCollection.insert(new BinaryTreeValueImpl(5));
         assertTrue(binaryCollection.isBinarySearchTree());
-        log.info("Before remove:" + binaryCollection.breadthFirst());
 
         binaryCollection.remove(new BinaryTreeValueImpl(40));
         binaryCollection.remove(new BinaryTreeValueImpl(5));
-        log.info("After remove:" + binaryCollection.breadthFirst());
         assertTrue(binaryCollection.isBinarySearchTree());
         assertEquals("(30)(20)(50)(10)(25)(35)", binaryCollection.breadthFirst().trim());
     }

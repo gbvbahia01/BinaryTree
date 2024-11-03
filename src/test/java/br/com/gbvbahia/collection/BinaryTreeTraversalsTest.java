@@ -3,13 +3,10 @@ package br.com.gbvbahia.collection;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.logging.Logger;
-
 import static org.junit.Assert.assertEquals;
 
 public class BinaryTreeTraversalsTest {
 
-    private final Logger log = Logger.getLogger(getClass().getName());
     private BinaryTree<BinaryTreeValueImpl> binaryTree;
 
     @Before
@@ -20,8 +17,6 @@ public class BinaryTreeTraversalsTest {
     @Test
     public void test_breadthFirst() {
         fillTree();
-        log.info(binaryTree.breadthFirst());
-        log.info(binaryTree.toString());
         String expected = "(5)(3)(7)(2)(4)(6)(8)(1)(9)";
         assertEquals(expected, binaryTree.breadthFirst().trim());
     }
