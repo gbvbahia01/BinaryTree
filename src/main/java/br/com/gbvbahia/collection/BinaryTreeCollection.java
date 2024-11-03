@@ -7,7 +7,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 import lombok.Getter;
- 
+
 public class BinaryTreeCollection<T extends BinaryTreeValue<T>> {
 
     @Getter
