@@ -41,12 +41,12 @@ public class BinaryTreeCollectionTest extends TestCase {
         binaryCollection.insert(new BinaryTreeValueImpl(15));
 
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(12)(8)(20)(10)(17)(25)(15)", binaryCollection.breadthFirst().trim());
+        assertEquals("(12), (8), (20), (10), (17), (25), (15)", binaryCollection.breadthFirst().trim());
 
         binaryCollection.remove(new BinaryTreeValueImpl(12));
 
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(15)(8)(20)(10)(17)(25)", binaryCollection.breadthFirst().trim());
+        assertEquals("(15), (8), (20), (10), (17), (25)", binaryCollection.breadthFirst().trim());
     }
 
     @Test
@@ -59,7 +59,7 @@ public class BinaryTreeCollectionTest extends TestCase {
         assertTrue(binaryCollection.isBinarySearchTree());
         binaryCollection.remove(new BinaryTreeValueImpl(3));
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(10)(5)(15)", binaryCollection.breadthFirst().trim());
+        assertEquals("(10), (5), (15)", binaryCollection.breadthFirst().trim());
     }
 
     @Test
@@ -72,7 +72,7 @@ public class BinaryTreeCollectionTest extends TestCase {
         assertTrue(binaryCollection.isBinarySearchTree());
         binaryCollection.remove(new BinaryTreeValueImpl(15));
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(10)(5)(12)", binaryCollection.breadthFirst().trim());
+        assertEquals("(10), (5), (12)", binaryCollection.breadthFirst().trim());
     }
 
     @Test
@@ -88,7 +88,7 @@ public class BinaryTreeCollectionTest extends TestCase {
         assertTrue(binaryCollection.isBinarySearchTree());
         binaryCollection.remove(new BinaryTreeValueImpl(20));
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(25)(10)(30)(5)(15)(35)", binaryCollection.breadthFirst().trim());
+        assertEquals("(25), (10), (30), (5), (15), (35)", binaryCollection.breadthFirst().trim());
     }
 
     @Test
@@ -107,7 +107,7 @@ public class BinaryTreeCollectionTest extends TestCase {
         binaryCollection.remove(new BinaryTreeValueImpl(40));
         binaryCollection.remove(new BinaryTreeValueImpl(5));
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(30)(20)(50)(10)(25)(35)", binaryCollection.breadthFirst().trim());
+        assertEquals("(30), (20), (50), (10), (25), (35)", binaryCollection.breadthFirst().trim());
     }
 
     @Test
@@ -121,7 +121,7 @@ public class BinaryTreeCollectionTest extends TestCase {
 
         // Checks if the tree is balanced after simple rotation
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(20)(10)(30)", binaryCollection.breadthFirst().trim());
+        assertEquals("(20), (10), (30)", binaryCollection.breadthFirst().trim());
 
         // Tree Reset
         binaryCollection = new BinaryTreeCollection<>();
@@ -133,7 +133,7 @@ public class BinaryTreeCollectionTest extends TestCase {
 
         // Checks if the tree is balanced after simple rotation
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(20)(10)(30)", binaryCollection.breadthFirst().trim());
+        assertEquals("(20), (10), (30)", binaryCollection.breadthFirst().trim());
 
         // Tree Reset
         binaryCollection = new BinaryTreeCollection<>();
@@ -145,7 +145,7 @@ public class BinaryTreeCollectionTest extends TestCase {
 
         // Checks if the tree is balanced after double rotation
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(20)(10)(30)", binaryCollection.breadthFirst().trim());
+        assertEquals("(20), (10), (30)", binaryCollection.breadthFirst().trim());
 
         // Tree Reset
         binaryCollection = new BinaryTreeCollection<>();
@@ -157,7 +157,7 @@ public class BinaryTreeCollectionTest extends TestCase {
 
         // Checks if the tree is balanced after double rotation
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(20)(10)(30)", binaryCollection.breadthFirst().trim());
+        assertEquals("(20), (10), (30)", binaryCollection.breadthFirst().trim());
     }
 
 
@@ -209,7 +209,7 @@ public class BinaryTreeCollectionTest extends TestCase {
         assertTrue(binaryCollection.isBinarySearchTree());
 
         // Check the resulting structure
-        assertEquals("(30)(20)(50)(40)", binaryCollection.breadthFirst().trim());
+        assertEquals("(30), (20), (50), (40)", binaryCollection.breadthFirst().trim());
     }
 
 
@@ -237,7 +237,7 @@ public class BinaryTreeCollectionTest extends TestCase {
         binaryCollection.insert(new BinaryTreeValueImpl(15));
         binaryCollection.insert(new BinaryTreeValueImpl(10));
         assertTrue(binaryCollection.isBinarySearchTree());
-        assertEquals("(10)(5)(15)", binaryCollection.breadthFirst().trim());
+        assertEquals("(10), (5), (15)", binaryCollection.breadthFirst().trim());
     }
 
 
@@ -260,7 +260,7 @@ public class BinaryTreeCollectionTest extends TestCase {
         assertTrue(binaryCollection.isBinarySearchTree());
 
         // Check the resulting structure
-        assertEquals("(20)(10)(40)(50)", binaryCollection.breadthFirst().trim());
+        assertEquals("(20), (10), (40), (50)", binaryCollection.breadthFirst().trim());
     }
 
 }

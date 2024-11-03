@@ -18,7 +18,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
 
     @Test
     public void testStartingFromLeft() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int values = 20;
         for (int i = 1; i < values; i++) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
@@ -35,7 +35,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
 
     @Test
     public void testStartingFromCenter() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int values = 20;
         for (int i = 1; i < values; i++) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
@@ -52,7 +52,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
 
     @Test
     public void testStartingFromRight() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int values = 20;
         for (int i = 1; i < values; i++) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
@@ -70,7 +70,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Search value less than the minimum value in the tree
     @Test
     public void testValueLessThanAllNodes() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int values = 20;
         // Insert values from 1 to 19
         for (int i = 1; i < values; i++) {
@@ -88,7 +88,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Search value greater than the maximum value in the tree
     @Test
     public void testValueGreaterThanAllNodes() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int values = 20;
         // Insert values from 1 to 19
         for (int i = 1; i < values; i++) {
@@ -103,7 +103,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Empty tree
     @Test
     public void testEmptyTree() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         List<BinaryTreeValueImpl> vals = binaryTree.findAllGreaterThanOrEqualTo(new BinaryTreeValueImpl(10)).stream().toList();
         // Should return an empty list
         assertEquals(0, vals.size());
@@ -112,7 +112,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Tree with a single element
     @Test
     public void testSingleElementTree() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(10));
         List<BinaryTreeValueImpl> vals = binaryTree.findAllGreaterThanOrEqualTo(new BinaryTreeValueImpl(10)).stream().toList();
         assertEquals(1, vals.size());
@@ -126,7 +126,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Negative values
     @Test
     public void testWithNegativeValues() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(-10));
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(-20));
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(-5));
@@ -147,7 +147,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Non-sequential values
     @Test
     public void testWithNonSequentialInsertions() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {10, 5, 15, 3, 7, 12, 17};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -166,7 +166,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Search value not present in the tree
     @Test
     public void testValueNotInTree() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {10, 5, 15, 3, 7, 12, 17};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -184,7 +184,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Search value equal to the minimum value in the tree
     @Test
     public void testValueEqualToMinimum() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {10, 5, 15, 3, 7, 12, 17};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -200,7 +200,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Search value equal to the maximum value in the tree
     @Test
     public void testValueEqualToMaximum() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {10, 5, 15, 3, 7, 12, 17};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -214,7 +214,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Attempting to insert duplicates
     @Test
     public void testWithDuplicates() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {10, 5, 15, 5, 10, 15}; // duplicates
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -230,7 +230,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Mixed values with a complex tree structure
     @Test
     public void testMixedValues() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {50, 20, 70, 10, 30, 60, 80, 5, 15, 25, 35, 55, 65, 75, 85};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -247,7 +247,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Search value less than the minimum negative value
     @Test
     public void testValueLessThanNegativeMinimum() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(-10));
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(-20));
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(-5));
@@ -264,7 +264,7 @@ public class BinaryTreeAllBiggerOrEqualTest {
     // Search value greater than the maximum negative value
     @Test
     public void testValueGreaterThanNegativeMaximum() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(-10));
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(-20));
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(-5));

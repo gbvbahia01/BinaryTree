@@ -6,7 +6,8 @@ import org.junit.Test;
 import java.util.Optional;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class BinaryTreeBalanceTest {
 
@@ -19,13 +20,13 @@ public class BinaryTreeBalanceTest {
 
     @Test
     public void testBalance_50() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int values = 22;
         for (int i = 1; i < values; i++) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
         }
 
-        assertTrue(binaryTree.hasValue());
+        assertTrue(binaryTree.isNotEmpty());
         assertTrue(binaryTree.hasLeftValue());
         assertTrue(binaryTree.hasRightValue());
 
@@ -38,13 +39,13 @@ public class BinaryTreeBalanceTest {
 
     @Test
     public void testBalance_15() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int values = 15;
         for (int i = 1; i < values; i++) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
         }
 
-        assertTrue(binaryTree.hasValue());
+        assertTrue(binaryTree.isNotEmpty());
         assertTrue(binaryTree.hasLeftValue());
         assertTrue(binaryTree.hasRightValue());
 
@@ -55,7 +56,7 @@ public class BinaryTreeBalanceTest {
     }
 
     private boolean isBinarySearchTree(BinaryTree<BinaryTreeValueImpl> binaryTree) {
-        if (!binaryTree.hasValue()) {
+        if (!binaryTree.isNotEmpty()) {
             return true;
         }
         boolean isGreater = isSubTreeGreater(binaryTree.getRight(), binaryTree.getValue());
@@ -70,7 +71,7 @@ public class BinaryTreeBalanceTest {
     }
 
     private boolean isSubTreeLesser(BinaryTree<BinaryTreeValueImpl> binaryTree, BinaryTreeValueImpl value) {
-        if (!binaryTree.hasValue()) {
+        if (!binaryTree.isNotEmpty()) {
             return true;
         }
         int compare = binaryTree.getValue().compareTo(value);
@@ -78,7 +79,7 @@ public class BinaryTreeBalanceTest {
     }
 
     private boolean isSubTreeGreater(BinaryTree<BinaryTreeValueImpl> binaryTree, BinaryTreeValueImpl value) {
-        if (!binaryTree.hasValue()) {
+        if (!binaryTree.isNotEmpty()) {
             return true;
         }
         int compare = binaryTree.getValue().compareTo(value);

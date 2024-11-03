@@ -18,7 +18,7 @@ public class BinaryTreeAllBetweenTest {
 
     @Test
     public void testStartingFromLeft() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int values = 20;
         for (int i = 1; i < values; i++) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
@@ -39,7 +39,7 @@ public class BinaryTreeAllBetweenTest {
 
     @Test
     public void testStartingFromCenter() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int values = 20;
         for (int i = 1; i < values; i++) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
@@ -60,7 +60,7 @@ public class BinaryTreeAllBetweenTest {
 
     @Test
     public void testStartingFromRight() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int values = 20;
         for (int i = 1; i < values; i++) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(i));
@@ -82,7 +82,7 @@ public class BinaryTreeAllBetweenTest {
     // Interval where both start and end values are not present in the tree
     @Test
     public void testIntervalNotInTree() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {1, 3, 5, 7, 9, 11, 13};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -104,7 +104,7 @@ public class BinaryTreeAllBetweenTest {
     // Interval where start is less than the minimum value in the tree
     @Test
     public void testStartLessThanMinimum() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {5, 10, 15, 20};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -123,7 +123,7 @@ public class BinaryTreeAllBetweenTest {
     // Interval where end is greater than the maximum value in the tree
     @Test
     public void testEndGreaterThanMaximum() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {5, 10, 15, 20};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -142,7 +142,7 @@ public class BinaryTreeAllBetweenTest {
     // Interval where start and end are equal and present in the tree
     @Test
     public void testStartEqualsEndValuePresent() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {5, 10, 15};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -158,7 +158,7 @@ public class BinaryTreeAllBetweenTest {
     // Interval where start and end are equal and not present in the tree
     @Test
     public void testStartEqualsEndValueNotPresent() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {5, 15};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -173,7 +173,7 @@ public class BinaryTreeAllBetweenTest {
     // Empty tree
     @Test
     public void testEmptyTree() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         List<BinaryTreeValueImpl> vals = binaryTree.findAllBetween(new BinaryTreeValueImpl(5), new BinaryTreeValueImpl(15))
                 .stream().toList();
         // Should return an empty list
@@ -183,7 +183,7 @@ public class BinaryTreeAllBetweenTest {
     // Tree with a single element
     @Test
     public void testSingleElementTree() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         binaryTree = binaryTree.insert(new BinaryTreeValueImpl(10));
         // Interval includes the single element
         List<BinaryTreeValueImpl> vals = binaryTree.findAllBetween(new BinaryTreeValueImpl(5), new BinaryTreeValueImpl(15))
@@ -199,7 +199,7 @@ public class BinaryTreeAllBetweenTest {
     // Tree with negative values
     @Test
     public void testWithNegativeValues() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {-20, -10, -5, 0, 5, 10};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -220,7 +220,7 @@ public class BinaryTreeAllBetweenTest {
     // Interval that does not overlap any values in the tree
     @Test
     public void testIntervalNotOverlapping() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {1, 3, 5, 7, 9};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -235,7 +235,7 @@ public class BinaryTreeAllBetweenTest {
     // Attempting to insert duplicates
     @Test
     public void testWithDuplicates() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {5, 10, 15, 10, 5}; // duplicates
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -253,7 +253,7 @@ public class BinaryTreeAllBetweenTest {
     // Non-sequential values
     @Test
     public void testWithNonSequentialValues() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {50, 20, 70, 10, 30, 60, 80};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
@@ -275,7 +275,7 @@ public class BinaryTreeAllBetweenTest {
     // Mixed values with a complex tree structure
     @Test
     public void testMixedValues() {
-        assertFalse(binaryTree.hasValue());
+        assertTrue(binaryTree.isEmpty());
         int[] values = {50, 25, 75, 12, 37, 62, 87, 6, 18, 31, 43, 56, 68, 81, 93};
         for (int val : values) {
             binaryTree = binaryTree.insert(new BinaryTreeValueImpl(val));
