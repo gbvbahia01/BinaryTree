@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>br.com.gbvbahia.collection</groupId>
-    <artifactId>BinaryTree</artifactId>
-    <version>1.0.1</version>
+    <artifactId>binarytree</artifactId>
+    <version>1.0.2</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
