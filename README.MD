@@ -25,7 +25,7 @@ search, insert, and delete operations.
 
 ##### Prerequisites
 
-    Java Development Kit (JDK) 11 or higher.
+    Java Development Kit (JDK) 17 or higher.
     A Java IDE or text editor.
     Maven (optional, for project management).
 
